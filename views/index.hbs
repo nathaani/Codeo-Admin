@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gamepage Admin</title>
+  </head>
+  <body>
+    <h2>Gamepage Admin</h2>
+
+    <!-- Form for adding a new note -->
+    <form action="/notes" method="post">
+          <label for="Question">Question:</label>
+      <input type="text" id="Question" name="Question" required />
+
+      <label for="Choice1">Choice 1:</label>
+      <input type="text" id="Choice1" name="Choice1" required />
+
+      <label for="Choice2">Choice 2:</label>
+      <input type="text" id="Choice2" name="Choice2" required />
+
+      <label for="Choice3">Choice 3:</label>
+      <input type="text" id="Choice3" name="Choice3" required />
+
+      <label for="Answer">Answer:</label>
+      <input type="text" id="Answer" name="Answer" required />
+      <button type="submit">Add Note</button>
+    </form>
+
+    <ul class="notes">
+      {{#each Gamepage}}
+        <li>
+          <div>Question: {{Question}}</div>
+          <div>Choice 1: {{Choice1}}</div>
+          <div>Choice 2: {{Choice2}}</div>
+          <div>Choice 3: {{Choice3}}</div>
+          <div>Answer: {{Answer}}</div>
+          <div>
+            <!-- Links for editing and deleting the note -->
+            <a href="note/edit/{{_id}}">Edit</a>
+            <a
+              href="note/delete/{{_id}}"
+              onclick="return confirm('Are you sure you want to delete this note?');"
+            >Delete</a>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </body>
+</html>
